@@ -139,12 +139,9 @@
 		 De acordo com o teorema de Nyquist, a frequência de amostragem $ f_s $ deve ser, no mínimo, duas vezes maior que a maior frequência presente no sinal. Desta forma, é possível reconstruir o sinal a partir de suas amostras.
 		 
 		\subsubsection{Extração de características}
-		A extração de características de um sinal é um processo onde identifica-se alguma propriedade do sinal e suas componentes - frequência ou amplitude, por exemplo - que seja relevante para a identificação desejada. 
-		\paragraph{MFCC}
-		
-		Os MFCC (\textit{Mel Frequency Cepstral Coefficients}) são características largamente utilizadas em aplicações de reconhecimento de voz.\cite{benesty2007springer}
-		
-		A obtenção destes coeficientes está relacionada ao \textit{cepstrum} de um sinal. 
+		A extração de características de um sinal é um processo onde identifica-se alguma propriedade do sinal e suas componentes - frequência, por exemplo, para gerar uma representação paramétrica deste sinal.
+	
+		\paragraph{Cepstrum}
 		O cepstrum resulta da transformada inversa de Fourier do logaritmo natural da densidade espectral de potência de um sinal, que, por sua vez, corresponde à magnitude da transformada de Fourier de um sinal, elevada ao quadrado. Portanto, para um sinal x(t) real, temos:
 		
 		$$ cepstrum = \mathfrak{F}^{-1}\Big\{ln(|\mathfrak{F}\{x(t)\})^{2})\Big\} $$
@@ -153,10 +150,23 @@
 		
 		$$ cepstrum \, de \, pot\hat{e}ncia = |cepstrum|^{2} = {\Big|\mathfrak{F}^{-1}\Big\{ln(|\mathfrak{F}\{x(t)\})^{2})\Big\}\Big|}^{2} $$
 		
+			\paragraph{MFCC}
+			
+			Os MFCC (\textit{Mel Frequency Cepstral Coefficients}) são características largamente utilizadas em aplicações de reconhecimento de voz.\cite{benesty2007springer}
+			
+			A implementação para obtenção destes coeficientes começa pela divisão de um sinal discreto no tempo $S(n)$ em $i$ \textit{frames} curtos, cada um com $N$ amostras, gerando assim os \textit{frames} \textbf{$S_f(k)$}, onde $f$ representa o número do \textit{frame} e $k$, suas amostras. Para cada um destes \textit{frames}, os seguintes processos são realizados:
+			\begin{itemize}
+				\item Transformada discreta de Fourier (DFT)
+				$$ S_f(k) = \sum_{n=1}^{N}S(n) $$
+			\end{itemize}
+			
+		
 		\subsection{Comunicação via radiofrequência}
 		\subsubsection{Meios de transmissão}
 		\subsubsection{Modulação digital}
 		\subsubsection{Transmissão e recepção de dados}
+		
+		\subsection{Classificação por redes neurais artificiais}
 		
 		
 		
